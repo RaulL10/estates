@@ -1,10 +1,15 @@
 from django.shortcuts import render, redirect
-import logging
-
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .models import House, Realtor
 from .forms import ListingForm
+import logging
 
 # Create your views here.
 def home(request):
@@ -13,33 +18,63 @@ def home(request):
 def about(request):
   return render(request, 'about.html')
 
+@login_required
 def houses_index(request):
-    houses = House.objects.all()
+    houses = House.objects.filter(user=request.user)
     return render(request, 'houses/index.html', { 'houses': houses })
 
-def houses_index(request, finch_id):
-  house = House.objects.get(id=finch_id)
+@login_required
+def houses_detail(request, house_id):
+  house = House.objects.get(id=house_id)
   listing_form = ListingForm()
   id_list = house.realtors.all().values_list('id')
   realtors_house_doesnt_have = Realtor.objects.exclude(id__in=id_list)
-  logging.warning(realtors_house_doesnt_have)
+  listing_form = ListingForm()
   return render(request, 'houses/detail.html', { 'house': house, 
   'listing': listing_form,
-  'studys': realtors_house_doesnt_have
+  'realtors': realtors_house_doesnt_have
   })
 
-class HouseCreate(CreateView):
-  model = House
-  fields = ['name', 'type', 'description', 'age']
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in via code
+      login(request, user)
+      return redirect('index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
 
-class HouseUpdate(UpdateView):
+class HouseCreate(LoginRequiredMixin,CreateView):
   model = House
-  fields = ['type', 'description', 'age']
+  fields = ['address', 'city', 'realtor', 'description' , 'price' , 'zipcode']
 
-class HouseDelete(DeleteView):
+   # This inherited method is called when a
+  # valid cat form is being submitted
+  def form_valid(self, form):
+    # Assign the logged in user (self.request.user)
+    form.instance.user = self.request.user  # form.instance is the cat
+    # Let the CreateView do its job as usual
+    return super().form_valid(form)
+
+class HouseUpdate(LoginRequiredMixin, UpdateView):
+  model = House
+  fields = ['address', 'city', 'realtor', 'description' , 'price' , 'zipcode']
+
+class HouseDelete(LoginRequiredMixin ,DeleteView):
   model = House
   success_url = '/houses/'
 
+@login_required
 def add_listing(request, house_id):
   # create a ModelForm instance using the data in the posted form
   form = ListingForm(request.POST)
@@ -62,16 +97,18 @@ class RealtorCreate(CreateView):
 
 class RealtorUpdate(UpdateView):
   model = Realtor
-  fields = ['topic']
+  fields = ['name' , 'description' ,'phone' , 'email']
 
 class RealtorDelete(DeleteView):
   model = Realtor
-  success_url = '/studys/'
+  success_url = '/realtors/'
 
+@login_required
 def assoc_realtor(request, house_id, realtor_id):
   House.objects.get(id=house_id).realtors.add(realtor_id)
   return redirect('detail', house_id=house_id)
 
+@login_required
 def unassoc_realtor(request, house_id, realtor_id):
   House.objects.get(id=house_id).realtors.remove(realtor_id)
   return redirect('detail', house_id=house_id)

@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 CITIES = (
   ('S', 'San Diego'),
@@ -16,7 +17,8 @@ class Realtor(models.Model):
     def _str_(self):
         return self.name
 
- 
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'pk': self.id})
 
 class House(models.Model):
     address = models.CharField(max_length=200)
@@ -25,8 +27,13 @@ class House(models.Model):
     description = models.TextField(blank=True)
     price = models.IntegerField()
     realtors = models.ManyToManyField(Realtor)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     def _str_(self):
         return self.address
+
+class Meta:
+  ordering = ['-date']
+
 
 class Listing(models.Model):
   date = models.DateField('Listing Date')
