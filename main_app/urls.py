@@ -19,5 +19,4 @@ urlpatterns = [
     path('realtors/<int:pk>/update/', views.RealtorUpdate.as_view(), name='realtors_update'),
     path('realtors/<int:pk>/delete/', views.RealtorDelete.as_view(), name='realtors_delete'),
     path('accounts/signup/', views.signup, name='signup'),
-    
 ]
