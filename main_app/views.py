@@ -10,7 +10,7 @@ from django.views.generic import ListView, DetailView
 from .models import House, Realtor
 from .forms import ListingForm
 import logging
-
+from .models import Listing
 # Create your views here.
 def home(request):
   return render(request, 'home.html')
@@ -20,6 +20,8 @@ def about(request):
 
 @login_required
 def houses_index(request):
+   
+
     houses = House.objects.filter(user=request.user)
     return render(request, 'houses/index.html', { 'houses': houses })
 
