@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .models import House, Realtor
-from .forms import ListingForm
+from .forms import CustomMultiSelectForm, ListingForm
 import logging
 from .models import Listing
 # Create your views here.
@@ -20,46 +20,24 @@ def about(request):
 
 @login_required
 def houses_index(request):
-   
-
-    houses = House.objects.filter(user=request.user)
-    return render(request, 'houses/index.html', { 'houses': houses })
+   houses = House.objects.filter(user=request.user)
+   return render(request, 'houses/index.html', { 'houses': houses })
 
 @login_required
 def houses_detail(request, house_id):
   house = House.objects.get(id=house_id)
+  # listing_form = ListingForm()
+  # id_list = house.realtors.all().values_list('id')
   listing_form = ListingForm()
-  id_list = house.realtors.all().values_list('id')
-  realtors_house_doesnt_have = Realtor.objects.exclude(id__in=id_list)
-  listing_form = ListingForm()
-  return render(request, 'houses/detail.html', { 'house': house, 
-  'listing': listing_form,
-  'realtors': realtors_house_doesnt_have
+  return render(request, 'houses/detail.html', { 
+    'house': house, 
+    'listing_form': listing_form,
   })
-
-def signup(request):
-  error_message = ''
-  if request.method == 'POST':
-    # This is how to create a 'user' form object
-    # that includes the data from the browser
-    form = UserCreationForm(request.POST)
-    if form.is_valid():
-      # This will add the user to the database
-      user = form.save()
-      # This is how we log a user in via code
-      login(request, user)
-      return redirect('index')
-    else:
-      error_message = 'Invalid sign up - try again'
-  # A bad POST or a GET request, so render signup.html with an empty form
-  form = UserCreationForm()
-  context = {'form': form, 'error_message': error_message}
-  return render(request, 'registration/signup.html', context)
 
 class HouseCreate(LoginRequiredMixin,CreateView):
   model = House
-  fields = ['address', 'city', 'realtor', 'description' , 'price' , 'zipcode']
-
+  form_class = CustomMultiSelectForm
+  # fields = ['address', 'city', 'description' , 'price' , 'zipcode']
    # This inherited method is called when a
   # valid cat form is being submitted
   def form_valid(self, form):
@@ -115,3 +93,21 @@ def unassoc_realtor(request, house_id, realtor_id):
   House.objects.get(id=house_id).realtors.remove(realtor_id)
   return redirect('detail', house_id=house_id)
 
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in via code
+      login(request, user)
+      return redirect('index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)

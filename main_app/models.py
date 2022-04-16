@@ -14,11 +14,12 @@ class Realtor(models.Model):
     description = models.TextField(blank=True)
     phone = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
+
     def _str_(self):
-        return self.name
+      return self.name
 
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'pk': self.id})
+      return reverse('detail', kwargs={'pk': self.id})
 
 class House(models.Model):
     address = models.CharField(max_length=200)
@@ -28,8 +29,14 @@ class House(models.Model):
     price = models.IntegerField()
     realtors = models.ManyToManyField(Realtor)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    def _str_(self):
-        return self.address
+    
+    def __str__(self):
+     return self.address
+     
+    def get_absolute_url(self):
+     return reverse('detail', kwargs={'house_id': self.id})
+   
+  
 
 class Meta:
   ordering = ['-date']
