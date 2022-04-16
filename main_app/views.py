@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .models import House, Realtor
-from .forms import ListingForm
+from .forms import CustomMultiSelectForm, ListingForm
 import logging
 from .models import Listing
 # Create your views here.
@@ -36,8 +36,8 @@ def houses_detail(request, house_id):
 
 class HouseCreate(LoginRequiredMixin,CreateView):
   model = House
-  fields = ['address', 'city', 'realtors', 'description' , 'price' , 'zipcode']
-
+  form_class = CustomMultiSelectForm
+  # fields = ['address', 'city', 'description' , 'price' , 'zipcode']
    # This inherited method is called when a
   # valid cat form is being submitted
   def form_valid(self, form):
