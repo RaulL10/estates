@@ -1,49 +1,297 @@
 body {
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(38, 38, 38);
 }
-#home {
-    background-image: url(https://i.imgur.com/4WgnXxI.png);
-    background-size: cover;
-    height: 100vh;
+
+/* ----- 'NAV BAR' STYLING BELOW THIS COMMENT ----- */
+
+#nav-bar {
+    height: 70px;
+    background-color: rgb(29, 29, 29);
+    color: white;
 }
-a{
-    text-decoration: none;
-}
-ul {
-    list-style: none;
-    padding: 0;
-    font-size: 20px;
-}
-li {
-    margin-left: 15px;
-    margin-right: 15px;
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.left {
+
+.home-icon {
     float: left;
-    height: 80px;
+    height: 60px;
     margin: 0;
+    padding-top: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.right {
+
+.links {
+    height: 68px;
     float: right;
     display: inline-flex;
     margin: 0;
+    text-decoration: none;
+    font-size: 14px;
+    padding-right: 25px;
 }
-nav {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 80px;
-    width: 100%;
-    background-color: lightgray;
+
+ul {
+    list-style: none;
+    font-size: 20px;
+    background-color: rgb(29, 29, 29);
+}
+
+li {
+    margin-left: 15px;
+    margin-right: 15px;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ----- 'HOME PAGE' STYLING BELOW THIS COMMENT ----- */
+
+#home-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+#home-title {
+  color: white;
+  text-decoration: underline;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 55px;
+}
+
+#home-quote {
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#home-photo {
+    opacity: 65%;
+    background-color: black;
+    display: block;
+    margin: auto;
+    margin-top: 25px;
+    height: 550px;
+    width: 955px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 1s ease-in;
+    filter: blur(1.5px);
+}
+
+#footer {
+    margin-top: auto;
+    text-align: center;
+    display: block;
+    color: white;
+}
+
+/* ----- 'ABOUT PAGE' STYLING BELOW THIS COMMENT ----- */
+
+#about-page-container {
+    animation: fadeInDown 500ms ease-in-out;
+}
+
+#mission-statement-title {
+    font-size: 34px;
+    color: white;
+    text-align: center;
+    animation: fadeInDown 1000ms ease-in-out;
+    text-decoration: underline;
+    padding-top: 70px;
+}
+
+#mission-statement {
+    color: white;
+    text-align: center;
+    animation: fadeInDown 900ms ease-in-out;
+}
+
+#about-title {
+    font-size: 34px;
+    color: white;
+    text-align: center;
+    animation: fadeInDown 700ms ease-in-out;
+    text-decoration: underline;
+    padding-top: 75px;
+}
+
+#about-text {
+    color: white;
+    text-align: center;
+    animation: fadeInDown 500ms ease-in-out;
+}
+
+/* ----- 'REALTORS PAGE' STYLING BELOW THIS COMMENT ----- */
+
+#realtors-list-title {
+    color: white;
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+    animation: fadeInDown 500ms ease-in-out;
+}
+
+/* ----- 'ADD LISTING PAGE' STYLING BELOW THIS COMMENT ---- */
+
+#add-listing-title {
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    animation: fadeInDown 500ms ease-in-out;
+}
+
+#new-listing-form {
+    color: black;
+    text-align: left;
+    background-color: white;
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#table-of-inputs {
+    color: black;
+}
+
+.submit-form-btn {
+    background-color: rgb(170, 110, 0);
     border-radius: 10px;
 }
-h1 {
+
+/* ----- 'LISTINGS PAGE' STYLING BELOW THIS COMMENT ----- */
+
+#filter-location-title {
+    font-size: 34px;
+    color: white;
+    display: block;
     text-align: center;
-    font-size: 100px;
+    text-decoration: underline;
+    animation: fadeInDown 900ms ease-in-out;
+}
+
+#filter-description {
+    color: white;
+    display: block;
+    text-align: center;
+    animation: fadeInDown 700ms ease-in-out;
+}
+
+#search {
+    color: white;
+    align-items: center;
+    display: block;
+    margin: auto;
+    background-color: rgb(29, 29, 29);
+    width: 450px;
+    height: 200px;
+}
+
+#listing-results {
+    color: white;
+    animation: fadeInDown 500ms ease-in-out;
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* ----- 'LOG IN PAGE' STYLING BELOW THIS COMMENT ----- */
+
+#log-in-container {
+    background-color: rgb(29, 29, 29);
+    color: white;
+    width: 350px;
+    height: 500px;
+    align-items: center;
+    display: block;
+    margin: auto;
+    margin-top: 25px;
+}
+
+#log-in-title {
+    text-decoration: underline;
+    text-align: center;
+    color: white;
+    animation: fadeInDown 500ms ease-in-out;
+}
+
+#login-inputs {
+    display: block;
+}
+
+/* ----- 'SIGN UP PAGE' STYLING BELOW THIS COMMENT -----  */
+
+#sign-up-title {
+    color: white;
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+    animation: fadeInDown 500ms ease-in-out;
+}
+
+#sign-up-container {
+    background-color: rgb(29, 29, 29);
+    width: 350px;
+    height: 500px;
+    align-items: center;
+    display: block;
+    margin: auto;
+    margin-top: 25px;
+}
+
+#sign-up-info-text {
+    color: white;
+}
+
+/* ----- !!!! ~ ONLY ANIMATIONS BELOW THIS LINE ~ !!!! ----- */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    65% {
+        opacity: .65;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+a:link {
+    font: 1em Arial, sans-serif;
+    display: inline-block;
+    padding: 1em;margin: 1em;
+    text-decoration: none;
+    color: white;
+    background-image: linear-gradient(white, white);
+    background-size: 0 3px, auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transition: all .3s ease-out;
+}
+  
+a:hover {
+    background-size: 100% 2px, auto;
+    color: rgb(170, 110, 0);
+    transform: scale(1.1);
 }
