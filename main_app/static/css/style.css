@@ -90,10 +90,12 @@ li {
 }
 
 #footer {
-    margin-top: auto;
     text-align: center;
-    display: block;
     color: white;
+    height: 40px;
+    width: 100vw;
+    position: absolute;
+    bottom: 0px;
 }
 
 /* ----- 'ABOUT PAGE' STYLING BELOW THIS COMMENT ----- */
