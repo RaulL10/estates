@@ -19,10 +19,11 @@
                 <ul class="right">
                   <li><a href="{% url 'about' %}">ABOUT</a></li>
                   {% if user.is_authenticated %}
-                    <!-- <li><a href="{% url 'realtors_create' %}">Add Realtor Information</a></li> -->
-                    <li><a href="{% url 'realtors_index' %}">REALTORS</a></li>
-                    <li><a href="{% url 'houses_create' %}">ADD LISTING</a></li>
-                    <li><a href="{% url 'index' %}">LISTINGS</a></li>
+                    <li><a href="{% url 'index' %}">Houses</a></li>
+                    <li><a href="{% url 'houses_create' %}">Add House</a></li>
+                    <li><a href="{% url 'realtors_create' %}">Add Realtor</a></li>
+                    <li><a href="{% url 'realtors_index' %}">Realtors</a></li>
+                    <li><a href="{% url 'listings_index' %}">Listings</a></li>
                     <li><a href="{% url 'logout' %}">LOG OUT</a></li>
                   {% else %}
                     <li><a href="{% url 'signup' %}">SIGN UP</a></li>

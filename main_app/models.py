@@ -1,7 +1,10 @@
+import logging
+from numbers import Real
 from django.db import models
 from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
+from django.forms import ModelChoiceField
 
 CITIES = (
   ('S', 'San Diego'),
@@ -19,15 +22,18 @@ class Realtor(models.Model):
       return self.name
 
     def get_absolute_url(self):
-      return reverse('detail', kwargs={'pk': self.id})
+      return reverse('realtors_detail', kwargs={'pk': self.id})
 
 class House(models.Model):
     address = models.CharField(max_length=200)
-    city = models.CharField(max_length=200)
+    city = models.CharField(max_length=200,
+      # add the 'choices' field option
+      choices=CITIES,
+      # set the default to be 'B'
+      default=CITIES[0][0]
+    )
     zipcode = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    price = models.IntegerField()
-    realtors = models.ManyToManyField(Realtor)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
@@ -35,33 +41,25 @@ class House(models.Model):
      
     def get_absolute_url(self):
      return reverse('detail', kwargs={'house_id': self.id})
-   
-  
-
-class Meta:
-  ordering = ['-date']
-
 
 class Listing(models.Model):
-  date = models.DateField('Listing Date')
-  location = models.CharField(max_length=200,
-    # add the 'choices' field option
-    choices=CITIES,
-    # set the default to be 'B'
-    default=CITIES[0][0]
-  )
+  class Meta:
+    ordering = ['-date']
+
+  date = models.DateField(auto_now=True)
   # creates a cat_id column
+  realtor = models.ForeignKey(
+    Realtor,
+    on_delete=models.CASCADE,
+    default=1
+  )
   house = models.ForeignKey(
     House,
     # automatically delete all feedings with the cat
     on_delete=models.CASCADE
   )
+  price = models.IntegerField(default=100000)
 
   def __str__(self):
-    return f"{self.get_location_display()} on {self.date}"
-
-
-
-
-
+    return self.house.address + ' ' + self.house.city
 # Create your models here.
