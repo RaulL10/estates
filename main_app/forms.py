@@ -1,39 +1,24 @@
 from cmath import log
-from django.forms import ModelForm, CharField, Textarea, IntegerField, MultipleChoiceField, SelectMultiple
-from .models import House, Listing, Realtor
+from django.forms import ModelForm, ModelChoiceField, ChoiceField
+from .models import Listing, Realtor, House, CITIES
 import logging
 
+class RealtorChoiceField(ModelChoiceField):
+  def label_from_instance(self, obj):
+    logging.warn('i am here')
+    return "Name: {}".format(obj.name)
 
 class ListingForm(ModelForm):
+  realtor = RealtorChoiceField(Realtor.objects)
   class Meta:
     model = Listing
-    fields = ['date', 'location']
+    fields = ['realtor', 'price']
 
-class CustomMultiSelectForm(ModelForm):
-  address = CharField()
-  city = CharField()
-  zipcode = CharField()
-  description = Textarea()
-  price = IntegerField()
-  choices_query = Realtor.objects.all()
-  choices = []
-  for e in choices_query:
-    choices.append((e.id, e.name))
-  # logging.warn(choices)
-  realtors = MultipleChoiceField(
-      choices=choices,
-      widget=SelectMultiple
-  )
-
-  def __init__(self, *args, **kwargs):
-      super(CustomMultiSelectForm, self).__init__(*args, **kwargs)
-      choices_query = Realtor.objects.all()
-      choices = []
-      for e in choices_query:
-        choices.append((e.id, e.name))
-      self.fields['realtors'].choices = choices
-
-
+class HouseSearchForm(ModelForm):
   class Meta:
     model = House
-    fields = ['address', 'city', 'description' , 'price' , 'zipcode', 'realtors']
+    fields = ['city', 'zipcode']
+  def __init__(self, *args, **kwargs):
+    super(HouseSearchForm, self).__init__(*args, **kwargs)
+    self.fields['zipcode'].required = False
+    self.fields['city'] = ChoiceField(choices=[[None, '----------']] + [r for r in CITIES],required=False)

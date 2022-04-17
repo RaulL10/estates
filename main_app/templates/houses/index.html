@@ -3,45 +3,38 @@
 <!-- Showcase -->
 <section id="showcase">
   <div class="container text-center">
-    <div class="home-search p-5">
       <div class="overlay p-5">
         <h1 id="filter-location-title">Filter by Location</h1>
         <p id="filter-description">Property searching just got easy!</p>
         <div class="search">
-          <form action="search.html" id="search">
-            <!-- Form Row 1 -->
-            <div class="form-row">
-              <div class="col-md-4 mb-3">
-                <label class="sr-only">Keywords</label>
-                <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
+<p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
+          voluptatum tempore! Consectetur, id commodi!</p>
+        <div class="search">
+          <form action="" method="GET">
+            {{ form.as_p }}
+            <button type="submit">Search</button>
+          </form>
+        </div>
+        <div>
+          <h1>House List</h1>
+      
+          {% for house in object_list %}
+          <hr>
+          <a href="{% url 'detail' house.id %}">
+              <div class="card">
+                  <div class="card-content">
+                      <span class="card-title">{{ house.name }}</span>
+                  <p>Description: {{ house.description }}</p>
+                  <p>address: {{ house.address }}</p>
+                  <p>city: {{ house.city }}</p>
+                  <p>zipcode: {{ house.zipcode }}</p>
+                  </div>
               </div>
-              <div class="col-md-4 mb-3">
-                <label class="sr-only">City</label>
-                <input type="text" name="city" class="form-control" placeholder="City">
-              </div>
-              <div class="col-md-4 mb-3">
-                <label class="sr-only">State</label>
-                <select name="state" class="form-control">
-                  <option selected="true" disabled="disabled">State (All)</option>
-                  <option value="CA">California</option>
-                </select>
-              </div>
-            </div>
-<div>
-  {% for house in houses %}
-  <a href="{% url 'detail' house.id %}">
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">{{ house.name }}</span>
-        <p>price: {{ house.breed }}</p>
-        <p>Description: {{ house.description }}</p>
-        <p>address: {{ house.address }}</p>
-        <p>city: {{ house.city }}</p>
+          </a>
+          {% endfor %}
+          </div>
       </div>
-    </div>
-  </a>
-  {% endfor %}
-  <h1 id="listing-results">Listing Results</h1>
-</div>
+  </div>        
 </section>
+
 {% endblock %}

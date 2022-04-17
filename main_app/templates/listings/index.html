@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %} 
+
+<!-- Showcase -->
+<h1>Listings</h1>
+
+{% for l in listings %}
+<hr>
+  <a href="{% url 'detail' l.house.id %}">
+    <div class="card">
+        <h3>Listing ID: {{ l.id }}</h3>
+        <div class="card-content">
+            <span class="card-title">{{ l.house.name }}</span>
+            <p>price: {{ l.price }}</p>
+        <p>Description: {{ l.house.description }}</p>
+        <p>address: {{ l.house.address }}</p>
+        <p>city: {{ l.house.city }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+            </div>
+</section>
+
+{% endblock %}
