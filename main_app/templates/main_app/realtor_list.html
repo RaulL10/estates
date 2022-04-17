@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Realtors List</h1>
+<h1 id="realtors-list-title">Realtors List</h1>
 
 {% for realtor in realtor_list %}
   <a href="{% url 'realtors_detail' realtor.id %}">
