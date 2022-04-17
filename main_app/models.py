@@ -24,12 +24,12 @@ class Realtor(models.Model):
     def get_absolute_url(self):
       return reverse('realtors_detail', kwargs={'pk': self.id})
 
+
+
 class House(models.Model):
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=200,
-      # add the 'choices' field option
       choices=CITIES,
-      # set the default to be 'B'
       default=CITIES[0][0]
     )
     zipcode = models.CharField(max_length=200)
@@ -42,12 +42,13 @@ class House(models.Model):
     def get_absolute_url(self):
      return reverse('detail', kwargs={'house_id': self.id})
 
+
+
 class Listing(models.Model):
   class Meta:
     ordering = ['-date']
 
   date = models.DateField(auto_now=True)
-  # creates a cat_id column
   realtor = models.ForeignKey(
     Realtor,
     on_delete=models.CASCADE,
@@ -55,11 +56,10 @@ class Listing(models.Model):
   )
   house = models.ForeignKey(
     House,
-    # automatically delete all feedings with the cat
     on_delete=models.CASCADE
   )
   price = models.IntegerField(default=100000)
 
   def __str__(self):
     return self.house.address + ' ' + self.house.city
-# Create your models here.
+
