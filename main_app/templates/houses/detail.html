@@ -21,11 +21,11 @@
 </div>
 <hr>
 {% if listing %}
-<h2>Listed On</h2>
+<h2 class="listed">Listed On</h2>
 <p>Date: {{ listing.date}}</p>
-<h2>Listed By: </h2>
+<h2 class="listed">Listed By: </h2>
 <p>{{ listing.realtor.name }}</p>
-<h2>Price: </h2>
+<h2 class="listed">Price: </h2>
 <p>{{ listing.price }}</p>
 {% else %}
 <div>
