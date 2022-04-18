@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>NOT ZILLOW</title>
+    <title>Castle</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -18,16 +21,16 @@
                 </ul>
                 <ul class="links">
                   {% if user.is_authenticated %}
-                  <li><a href="{% url 'index' %}">ALL HOMES</a></li>
-                  <li><a href="{% url 'houses_create' %}">ADD HOME</a></li>
-                  <li><a href="{% url 'realtors_index' %}">REALTORS</a></li>
-                  <li><a href="{% url 'listings_index' %}">LISTINGS</a></li>
-                  <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+                  <li><a href="{% url 'index' %}">Search</a></li>
+                  <li><a href="{% url 'houses_create' %}">Add Listing</a></li>
+                  <li><a href="{% url 'realtors_index' %}">Realtors</a></li>
+                  <li><a href="{% url 'listings_index' %}">For Sale</a></li>
+                  <li><a href="{% url 'logout' %}">Log Out</a></li>
                   {% else %}
-                  <li><a href="{% url 'signup' %}">SIGN UP</a></li>
-                  <li><a href="{% url 'login' %}">LOG IN</a></li>
+                  <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                  <li><a href="{% url 'login' %}">Log In</a></li>
                   {% endif %}                
-                  <li><a href="{% url 'about' %}">ABOUT</a></li>
+                  <li><a href="{% url 'about' %}">About</a></li>
                 </ul>
             </div>
         </nav>

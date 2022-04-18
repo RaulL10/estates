@@ -1,19 +1,16 @@
 {% extends 'base.html' %} {% block content %} 
 
 <!-- Showcase -->
-<h1>All Homes</h1>
+<h4 id="filter-location-title">Search</h4>
 <section id="showcase">
   <div class="container text-center">
       <div class="overlay p-5">
-        <h4 id="filter-location-title">Filter by Location</h4>
-        <p id="filter-description">Property searching just got easy!</p>
+        <p id="filter-location">Filter by Location</p>
         <div class="search">
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-            voluptatum tempore! Consectetur, id commodi!</p>
           <div class="search-house">
             <form action="" method="GET" class="search-house">
               {{ form.as_p }}
-              <button type="submit">Search</button>
+              <button type="submit" id="search-btn">Search</button>
             </form>
           </div>
           <div>
