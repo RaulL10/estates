@@ -128,9 +128,9 @@ class RealtorDetail(DetailView):
   model = Realtor
 
 
-# class RealtorCreate(CreateView):
-#   model = Realtor
-#   fields = '__all__'
+class RealtorCreate(CreateView):
+  model = Realtor
+  fields = '__all__'
 
 
 
