@@ -18,26 +18,27 @@
                 </ul>
                 <ul class="links">
                   {% if user.is_authenticated %}
-                  <li><a href="{% url 'index' %}">Upcoming</a></li>
-                  <li><a href="{% url 'houses_create' %}">Add House</a></li>
-                  <li><a href="{% url 'realtors_index' %}">Realtors</a></li>
-                  <li><a href="{% url 'listings_index' %}">For Sale</a></li>
-                  <li><a href="{% url 'logout' %}">Log Out</a></li>
+                  <li><a href="{% url 'index' %}">ALL HOMES</a></li>
+                  <li><a href="{% url 'houses_create' %}">ADD HOME</a></li>
+                  <li><a href="{% url 'realtors_index' %}">REALTORS</a></li>
+                  <li><a href="{% url 'listings_index' %}">LISTINGS</a></li>
+                  <li><a href="{% url 'logout' %}">LOG OUT</a></li>
                   {% else %}
-                  <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                  <li><a href="{% url 'login' %}">Log In</a></li>
+                  <li><a href="{% url 'signup' %}">SIGN UP</a></li>
+                  <li><a href="{% url 'login' %}">LOG IN</a></li>
                   {% endif %}                
-                  <li><a href="{% url 'about' %}">About</a></li>
+                  <li><a href="{% url 'about' %}">ABOUT</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main class="container">
         {% block content %}
+
         {% endblock %}
     </main>
-  	<footer>
-       <div id="footer">All Rights Reserved, &copy; 2022 Houses &nbsp;</div>
-    </footer>
 </body>
+<footer>
+    <p id="footer">All Rights Reserved, &copy; 2022 Houses &nbsp;</p>
+</footer>
 </html>
