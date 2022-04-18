@@ -1,39 +1,40 @@
 {% extends 'base.html' %} {% block content %} 
 
 <!-- Showcase -->
+<h1>All Homes</h1>
 <section id="showcase">
   <div class="container text-center">
       <div class="overlay p-5">
-        <h1 id="filter-location-title">Filter by Location</h1>
+        <h4 id="filter-location-title">Filter by Location</h4>
         <p id="filter-description">Property searching just got easy!</p>
         <div class="search">
-<p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-          voluptatum tempore! Consectetur, id commodi!</p>
-        <div class="search">
-          <form action="" method="GET">
-            {{ form.as_p }}
-            <button type="submit">Search</button>
-          </form>
-        </div>
-        <div>
-          <h1>House List</h1>
-      
-          {% for house in object_list %}
-          <hr>
-          <a href="{% url 'detail' house.id %}">
-              <div class="card">
-                  <div class="card-content">
-                      <span class="card-title">{{ house.name }}</span>
-                  <p>Description: {{ house.description }}</p>
-                  <p>address: {{ house.address }}</p>
-                  <p>city: {{ house.city }}</p>
-                  <p>zipcode: {{ house.zipcode }}</p>
-                  </div>
-              </div>
-          </a>
-          {% endfor %}
+          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
+            voluptatum tempore! Consectetur, id commodi!</p>
+          <div class="search-house">
+            <form action="" method="GET" class="search-house">
+              {{ form.as_p }}
+              <button type="submit">Search</button>
+            </form>
           </div>
-      </div>
+          <div>
+        
+            {% for house in object_list %}
+            <hr>
+            <a href="{% url 'detail' house.id %}">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">{{ house.name }}</span>
+                        <p>Address: {{ house.address }}</p>
+                        <p>City: {{ house.city }}</p>
+                        <p>Zip Code: {{ house.zipcode }}</p>
+                        <p>Description: {{ house.description }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
   </div>        
 </section>
 
