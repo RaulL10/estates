@@ -90,7 +90,7 @@ class HouseList(LoginRequiredMixin, ListView):
         elif zipcode:
             return House.objects.filter(zipcode=zipcode)
         else:
-            return House.objects.filter(user=self.request.user)
+            return House.objects.all()
 
 
 
