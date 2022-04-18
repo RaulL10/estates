@@ -2,6 +2,16 @@
 {% block content %}
 <h1>House Details</h1>
 
+{% for photo in house.photo_set.all %}
+<img src="{{ photo.url }}" width="500px" height="375px">
+{% empty %}
+<p>No Photos Uploaded</p>
+{% endfor %}
+<form action="{% url 'add_photo' house.id %}" enctype="multipart/form-data" method="POST">
+  {% csrf_token %}
+  <input type="file" name="photo-file">
+  <input type="submit" id="photo-btn" value="Upload">
+</form>
 <div class="row">
   <div class="col s6">
     <div class="card">
