@@ -7,7 +7,11 @@ body {
     background-repeat: no-repeat;
     background-blend-mode: multiply;
 }
-
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 60px;
+}
 /* ----- 'NAV BAR' STYLING BELOW THIS COMMENT ----- */
 
 #nav-bar {
@@ -182,15 +186,16 @@ main {
 #search-btn {
     margin: auto;
     display: block;
-    border-radius: 12px;
+    border-radius: 9px;
     border: 0;
     box-sizing: border-box;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 25px;
     margin-top: 38px;
     text-align: center;
     width: 50%;
-    height: 28px;
+    height: 30px;
+    
 }
 
 #listing-results {
@@ -199,6 +204,16 @@ main {
     display: block;
     text-align: center;
     text-decoration: underline;
+}
+#id_city {
+    font-size: 30px;
+    margin-right: 15px;
+    border-radius: 9px;
+}
+#id_zipcode {
+    font-size: 28px;
+    border-radius: 9px;
+    margin-right: 15px;
 }
 
 /* ----- 'ADD LISTING PAGE' STYLING BELOW THIS COMMENT ---- */
@@ -213,8 +228,8 @@ main {
 #new-listing-form {
     border-radius: 20px;
     background-color: rgb(29, 29, 29);
-    width: 350px;
-    height: 300px;
+    width: 400px;
+    height: 350px;
     align-items: center;
     display: block;
     margin: auto;
@@ -241,7 +256,13 @@ main {
     width: 50%;
     height: 28px;
 }
-
+#id_description {
+    height: 145px;
+    width: 260px;
+}
+#id_address {
+    font-size: 25px;
+}
 /* ----- 'REALTORS PAGE' STYLING BELOW THIS COMMENT ----- */
 
 #realtors-list-title {
