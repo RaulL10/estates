@@ -1,5 +1,6 @@
 body {
     background-color: rgb(38, 38, 38);
+    height: 90vh;
 }
 
 /* ----- 'NAV BAR' STYLING BELOW THIS COMMENT ----- */
@@ -92,10 +93,8 @@ li {
 #footer {
     text-align: center;
     color: white;
-    height: 40px;
-    width: 100vw;
-    position: absolute;
-    bottom: 0px;
+    height: 20px;
+    display: flex;
 }
 
 /* ----- 'ABOUT PAGE' STYLING BELOW THIS COMMENT ----- */
