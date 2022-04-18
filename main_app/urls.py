@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings 
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -19,5 +21,6 @@ urlpatterns = [
     path('realtors/<int:pk>/update/', views.RealtorUpdate.as_view(), name='realtors_update'),
     path('realtors/<int:pk>/delete/', views.RealtorDelete.as_view(), name='realtors_delete'),
     path('accounts/signup/', views.signup, name='signup'),
-    path('listings/', views.listings_index, name='listings_index')
+    path('listings/', views.listings_index, name='listings_index'),
+    path('houses/<int:house_id>/add_photo/', views.add_photo, name='add_photo')
 ]
