@@ -37,7 +37,7 @@ class House(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
-     return self.address
+     return f"{self.get_city_display()}"
      
     def get_absolute_url(self):
      return reverse('detail', kwargs={'house_id': self.id})
@@ -61,5 +61,5 @@ class Listing(models.Model):
   price = models.IntegerField(default=100000)
 
   def __str__(self):
-    return self.house.address + ' ' + self.house.city
+    return f"{self.house.address + ' ' + self.house.city}"
 

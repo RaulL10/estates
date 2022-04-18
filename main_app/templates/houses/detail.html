@@ -9,7 +9,7 @@
         <span class="card-title">{{ house.name }}</span>
         <p>Description: {{ house.description }}</p>
         <p>address: {{ house.address }}</p>
-        <p>city: {{ house.city }}</p>
+        <p>city: {{ house }}</p>
       </div>
       <div class="card-action">
         <a href="{% url 'houses_update' house.id %}">Edit</a>
