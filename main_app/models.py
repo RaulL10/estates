@@ -12,7 +12,7 @@ CITIES = (
   ('B', 'Santa Barabara'),
   ('M', 'Malibu')
 )
-# DEFAULT = '/Users/raullopez/code/estates/media/files/maxresdefault.jpg'
+
 
 class Realtor(models.Model):
     name = models.CharField(max_length =200)
