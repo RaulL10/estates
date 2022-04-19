@@ -1,18 +1,20 @@
 body {
     background-color: rgb(38, 38, 38);
     height: 90vh;
-    background-image: url(https://images5.alphacoders.com/102/1020357.jpg);
+    /* background-image: url(https://images5.alphacoders.com/102/1020357.jpg); */
     background-position: 0%;
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     background-attachment: fixed;
 }
+
 h1 {
     text-align: center;
     color: white;
     font-size: 60px;
 }
+
 /* ----- 'NAV BAR' STYLING BELOW THIS COMMENT ----- */
 
 #nav-bar {
@@ -136,16 +138,6 @@ li {
     filter: blur(1.5px); */
 }
 
-#footer {
-    color: white;
-    height: 20px;
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    margin: 0 auto;
-}
-
 main {
     height: 90vh;
 }
@@ -199,6 +191,10 @@ main {
     
 }
 
+.card-content {
+    background-color: rgb(29, 29, 29);
+}
+
 #listing-results {
     color: white;
     animation: fadeInDown 500ms ease-in-out;
@@ -206,11 +202,13 @@ main {
     text-align: center;
     text-decoration: underline;
 }
+
 #id_city {
     font-size: 30px;
     margin-right: 15px;
     border-radius: 9px;
 }
+
 #id_zipcode {
     font-size: 28px;
     border-radius: 9px;
