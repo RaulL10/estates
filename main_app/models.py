@@ -5,7 +5,6 @@ from django.db import models
 from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
-from django.forms import ModelChoiceField
 
 
 CITIES = (
@@ -20,18 +19,15 @@ class Realtor(models.Model):
     description = models.TextField(blank=True)
     phone = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
-    # image = models.FileField(default = DEFAULT)
+    image = models.ImageField(
+      upload_to='realtors', default = None,
+      blank=True, null=True)
 
     def _str_(self):
       return self.name
 
     def get_absolute_url(self):
       return reverse('realtors_detail', kwargs={'pk': self.id})
-
-    # def set_image_to_default(self):
-    #     self.image.delete(save=False)  # delete old image file
-    #     self.image = DEFAULT
-    #     self.save()
 
 
 class House(models.Model):
@@ -70,22 +66,3 @@ class Listing(models.Model):
 
   def __str__(self):
     return f"{self.house.address + ' ' + self.house.city}"
-
-
-
-class Photo(models.Model):
-  url = models.CharField(max_length=200)
-  house = models.ForeignKey(House, on_delete=models.CASCADE)
-  def str(self):
-    return f"Photo for house_id: {self.house_id} @{self.url}"
-
-class images(models.Model):
-    id_no=models.IntegerField()
-    name=models.CharField(max_length=20)  
-    loc=models.CharField(max_length=20)    
-    image=models.ImageField(upload_to='images')   
-    profile=models.FileField(upload_to='files')
-
- 
-    def __str__(self):        
-        return self.name

@@ -7,7 +7,9 @@
 <p>Phone: {{ realtor.phone }}</p>
 
 
-<p>Profile Pic: {{ realtor.image }}</p>
-<!-- <a href="{% url 'realtors_update' realtor.id %}">Edit</a>
-<a href="{% url 'realtors_delete' realtor.id %}">Delete</a> -->
+<p>Profile Pic:
+{% if realtor.image %}
+<img src="{{ realtor.image.url }}">
+{% endif %}
+</p>
 {% endblock %}
