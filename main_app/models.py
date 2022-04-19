@@ -1,3 +1,4 @@
+from email.policy import default
 import logging
 from numbers import Real
 from django.db import models
@@ -12,12 +13,14 @@ CITIES = (
   ('B', 'Santa Barabara'),
   ('M', 'Malibu')
 )
+# DEFAULT = '/Users/raullopez/code/estates/media/files/maxresdefault.jpg'
 
 class Realtor(models.Model):
     name = models.CharField(max_length =200)
     description = models.TextField(blank=True)
     phone = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
+    # image = models.FileField(default = DEFAULT)
 
     def _str_(self):
       return self.name
@@ -25,6 +28,10 @@ class Realtor(models.Model):
     def get_absolute_url(self):
       return reverse('realtors_detail', kwargs={'pk': self.id})
 
+    # def set_image_to_default(self):
+    #     self.image.delete(save=False)  # delete old image file
+    #     self.image = DEFAULT
+    #     self.save()
 
 
 class House(models.Model):
