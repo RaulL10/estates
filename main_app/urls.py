@@ -22,4 +22,5 @@ urlpatterns = [
     path('realtors/<int:pk>/delete/', views.RealtorDelete.as_view(), name='realtors_delete'),
     path('accounts/signup/', views.signup, name='signup'),
     path('listings/', views.listings_index, name='listings_index'),
+    path('houses/<int:house_id>/add_photo/', views.add_photo, name='add_photo')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
