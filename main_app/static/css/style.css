@@ -12,7 +12,7 @@ body {
 h1 {
     text-align: center;
     color: white;
-    font-size: 60px;
+    font-size: 45px;
 }
 
 /* ----- 'NAV BAR' STYLING BELOW THIS COMMENT ----- */
@@ -27,7 +27,7 @@ h1 {
     float: left;
     height: 60px;
     margin: 0;
-    padding-top: 8px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -191,10 +191,6 @@ main {
     
 }
 
-.card-content {
-    background-color: rgb(29, 29, 29);
-}
-
 #listing-results {
     color: white;
     animation: fadeInDown 500ms ease-in-out;
@@ -288,15 +284,54 @@ main {
 .search {
     color: white;
 }
-
-p {
-    color: white;
-}
-
 .listed {
     color: white;
 }
-
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#add-image-form {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+.house-details-card {
+    border-radius: 20px;
+    background-color: rgb(29, 29, 29);
+    width: 350px;
+    height: 150px;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+    color: white;
+    animation: fadeIn 1s ease-in;
+    top: 40%;
+    left: 55%;
+    border: 0.5px solid white;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+.card-action {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    color: white;
+}
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.listing-section {
+    margin: 0 auto;
+}
+span {
+    color: rgb(170, 110, 0);
+}
 /* ----- 'ABOUT PAGE' STYLING BELOW THIS COMMENT ----- */
 
 #about-page-container {
@@ -479,3 +514,4 @@ a:hover {
     background-color: rgb(170, 110, 0);
     color: white;
 }
+
