@@ -7,11 +7,13 @@
 {% empty %}
 <p class="details-text">No Photos Uploaded</p>
 {% endfor %}
+{% if user.is_authenticated and house.user.id == user.id %}
 <form action="{% url 'add_photo' house.id %}" enctype="multipart/form-data" method="POST" id="add-image-form">
   {% csrf_token %}
   <input type="file" name="photo-file">
   <input type="submit" id="photo-btn" value="Upload">
 </form>
+{% endif %}
 <div class="row">
   <div class="col s6">
     <div class="card">
@@ -23,8 +25,8 @@
       </div>
       {% if user.is_authenticated and house.user.id == user.id %}
       <div class="card-action">
-        <a href="{% url 'houses_update' house.id %}">Edit</a>
-        <a href="{% url 'houses_delete' house.id %}">Delete</a>
+        <a href="{% url 'houses_update' house.id %}">EDIT</a>
+        <a href="{% url 'houses_delete' house.id %}">SOLD</a>
       </div>
       {% endif %}
     </div> 
@@ -35,7 +37,7 @@
 {% if listing %}
 <div class="listing-section">
   <h2 class="listed"><span>LISTED ON: </span> {{ listing.date}}</h2>
-  <h2 class="listed"><span>LISTED BY: </span> {{ listing.realtor.name}}</h2>
+  <h2 class="listed"><span>REALTOR: </span> {{ listing.realtor.name}}</h2>
   <h2 class="listed"><span>PRICE: </span> {{ listing.price}}</h2>
 </div>
   {% else %}
