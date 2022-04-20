@@ -28,11 +28,11 @@ def about(request):
 @login_required
 def houses_detail(request, house_id):
   house = House.objects.get(id=house_id)
+  listing_form = ListingForm()
   try:
     listing = Listing.objects.filter(house_id=house_id).first()
   except:
     listing = None
-  listing_form = ListingForm()
   return render(request, 'houses/detail.html', { 
     'house': house, 
     'listing_form': listing_form,
