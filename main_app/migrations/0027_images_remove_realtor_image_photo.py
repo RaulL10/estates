@@ -22,10 +22,6 @@ class Migration(migrations.Migration):
                 ('profile', models.FileField(upload_to='files')),
             ],
         ),
-        migrations.RemoveField(
-            model_name='realtor',
-            name='image',
-        ),
         migrations.CreateModel(
             name='Photo',
             fields=[
