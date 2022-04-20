@@ -25,6 +25,8 @@ def about(request):
   return render(request, 'about.html')
 
 
+
+
 @login_required
 def houses_detail(request, house_id):
   house = House.objects.get(id=house_id)
