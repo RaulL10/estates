@@ -7,6 +7,7 @@ body {
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     background-attachment: fixed;
+
 }
 
 h1 {
@@ -15,11 +16,16 @@ h1 {
     font-size: 45px;
 }
 
+#hr-tag {
+    max-width: 100%;
+}
+
 /* ----- 'NAV BAR' STYLING BELOW THIS COMMENT ----- */
 
 #nav-bar {
     height: 70px;
     background-color: rgb(29, 29, 29);
+    border: 1px solid white;
     color: white;
     opacity: 75%;
 }
@@ -195,9 +201,8 @@ main {
 #id_zipcode {
     font-size: 12px;
     border-radius: 9px;
-    max-width: 130px;
+    width: 60px;
     height: 25px;
-    width: 140px;
 }
 
 #search-btn {
@@ -215,13 +220,22 @@ main {
     height: 23px;
 }
 
+/* .all-cards {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 0 auto;
+} */
+
 .house-card-content {
     background-color: rgb(29, 29, 29);
     border: 1px solid white;
     padding: 15px;
     border-radius: 9px;
-    max-width: 350px;
+    max-width: 400px;
     animation: fadeInDown 700ms ease-in-out;
+    /* margin: 0 auto;
+    display: inline-flex;
+    flex-direction: column; */
 }
 
 /* ---- 'MARK AS SOLD PAGE' STYLING BELOW THIS COMMENT ----- */
@@ -306,6 +320,22 @@ main {
     height: 28px;
 }
 
+#add-image-form {
+    display: block;
+    margin: auto;
+    cursor: pointer;
+} 
+
+#photo-btn {
+    cursor: pointer;
+    width: 100px;
+}
+
+#choose-file-btn {
+    cursor: pointer;
+    width: 175px;
+}
+
 /* ----- 'ADD LISTING PAGE' STYLING BELOW THIS COMMENT ---- */
 
 #add-listing-title {
@@ -326,9 +356,12 @@ main {
     display: block;
     margin: auto;
     margin-top: 25px;
-    padding: 20px;
     color: white;
     animation: fadeInDown 500ms ease-in-out;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #table-of-inputs {
@@ -356,7 +389,12 @@ main {
 }
 
 #id_address {
-    font-size: 25px;
+    font-size: 12px;
+    width: 260px;
+}
+
+#id_city {
+    text-align: center;
 }
 
 /* ----- 'REALTORS PAGE' STYLING BELOW THIS COMMENT ----- */
@@ -444,7 +482,6 @@ main {
 
 .search {
     color: white;
-    text-decoration: underline;
 }
 
 .listed {
@@ -466,12 +503,14 @@ img {
 .house-details-card {
     border-radius: 20px;
     background-color: rgb(29, 29, 29);
-    width: 350px;
-    height: 215px;
+    max-width: 400px;
+    max-height: 455px;
     align-items: center;
     margin: auto;
+    padding-right: 20px;
     padding-left: 20px;
     padding-top: 10px;
+    padding-bottom: 10px;
     color: white;
     animation: fadeIn 1s ease-in;
     top: 40%;
@@ -503,6 +542,10 @@ button {
 
 span {
     color: rgb(170, 110, 0);
+}
+
+#edit-title {
+    text-decoration: solid;
 }
 
 /* ----- 'ABOUT PAGE' STYLING BELOW THIS COMMENT ----- */
@@ -558,6 +601,7 @@ span {
     color: white;
     animation: fadeIn 1s ease-in;
     border: 1px solid white;
+    opacity: 75%;
 }
 
 #log-in-title {
@@ -610,6 +654,7 @@ span {
     padding: 20px;
     animation: fadeIn 1s ease-in;
     border: 1px solid white;
+    opacity: 75%;
 }
 
 #sign-up-info-text {
@@ -685,7 +730,7 @@ a:link {
 }
   
 a:hover {
-    background-size: 100% 2px, auto;
+    background-size: 80% 2px, auto;
     color: rgb(170, 110, 0);
     transform: scale(1.1);
 }
@@ -708,6 +753,7 @@ a:hover {
 #search-btn:hover {
     background-color: rgb(170, 110, 0);
     color: white;
+    text-decoration: none;
 }
 
 #list-house-btn:hover {
