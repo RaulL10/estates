@@ -13,10 +13,10 @@
               <button type="submit" id="search-btn">Search</button>
             </form>
           </div>
-          <div>
-        
+
+          <div class="all-cards">
             {% for house in object_list %}
-            <hr>
+            <hr id="hr-tag">
             <a href="{% url 'detail' house.id %}">
                 <div class="card">
                     <div class="house-card-content">

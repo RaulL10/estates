@@ -22,7 +22,7 @@
 {% if user.is_authenticated and house.user.id == user.id %}
 <form action="{% url 'add_photo' house.id %}" enctype="multipart/form-data" method="POST" id="add-image-form">
   {% csrf_token %}
-  <input type="file" name="photo-file">
+  <input type="file" name="photo-file" id="choose-file-btn">
   <input type="submit" id="photo-btn" value="Upload">
 </form>
 {% endif %}
