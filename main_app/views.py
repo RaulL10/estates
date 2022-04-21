@@ -141,22 +141,22 @@ class RealtorList(LoginRequiredMixin ,ListView):
 
 
 
-class RealtorDetail(DetailView):
+class RealtorDetail(LoginRequiredMixin, DetailView):
   model = Realtor
 
 
-class RealtorCreate(CreateView):
+class RealtorCreate(LoginRequiredMixin, CreateView):
   model = Realtor
   fields = '__all__'
 
 
 
-class RealtorUpdate(UpdateView):
+class RealtorUpdate(LoginRequiredMixin, UpdateView):
   model = Realtor
   fields = ['name' , 'description' ,'phone' , 'email']
 
 
 
-class RealtorDelete(DeleteView):
+class RealtorDelete(LoginRequiredMixin, DeleteView):
   model = Realtor
   success_url = '/realtors/'
