@@ -212,6 +212,87 @@ main {
     max-width: 130px;
 }
 
+/* ---- 'MARK AS SOLD PAGE' STYLING BELOW THIS COMMENT ----- */
+
+#sell-house-title {
+    color: white;
+    text-decoration: underline;
+    animation: fadeInDown 900ms ease-in-out;
+}
+
+#delete-container {
+    background-color: rgb(29, 29, 29);
+    border-radius: 20px;
+    border: 1px solid white;
+    color: white;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    width: 350px;
+    height: 400px;
+    padding: 50px;
+    animation: fadeInDown 700ms ease-in-out;
+}
+
+#sell-btn {
+    margin: auto;
+    display: block;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 38px;
+    text-align: center;
+    width: 30%;
+    height: 28px;
+}
+
+/* ----- 'HOUSE DETAILS BEFORE LISTING PAGE' STYLING BELOW THIS COMMENT ----- */
+
+.no-photos-uploaded {
+    color: white;
+    display: block;
+    margin: auto;
+}
+
+.listing-section {
+    display: block;
+    margin: auto;
+    background-color: rgb(29, 29, 29);
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 450px;
+    height: 200px;
+}
+
+.listed {
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+}
+
+#listing-inputs {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
+
+#list-house-btn {
+    margin: auto;
+    display: block;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 38px;
+    text-align: center;
+    width: 30%;
+    height: 28px;
+}
+
 /* ----- 'ADD LISTING PAGE' STYLING BELOW THIS COMMENT ---- */
 
 #add-listing-title {
@@ -247,18 +328,21 @@ main {
     box-sizing: border-box;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 38px;
+    margin-top: 14px;
     text-align: center;
     width: 50%;
     height: 28px;
 }
+
 #id_description {
     height: 145px;
     width: 260px;
 }
+
 #id_address {
     font-size: 25px;
 }
+
 /* ----- 'REALTORS PAGE' STYLING BELOW THIS COMMENT ----- */
 
 #realtors-list-title {
@@ -269,6 +353,57 @@ main {
     animation: fadeInDown 500ms ease-in-out;
 }
 
+.card {
+    text-align: center;
+    animation: fadeInDown 500ms ease-in-out;
+}
+
+#realtors-profile-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+/* ----- 'REALTOR DETAILS PAGE' STYLING BELOW THIS COMMENT ----- */
+
+#realtor-name {
+    text-decoration: underline;
+    font-size: 25px;
+}
+
+.realtor-info {
+    color:rgb(170, 110, 0);
+    font-size: large;
+}
+
+#realtor-inner-info {
+    font-size: 16px;
+}
+
+#realtor-profile-pic {
+    position: relative;
+    border-radius: 40px;
+    background-color: rgb(29, 29, 29);
+    border: 1px solid white;
+    padding: 15px;
+}
+
+#realtor-detail-card {
+    color: white;
+    background-color: rgb(29, 29, 29);
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-radius: 20px;
+}
+
 /* ----- 'FOR SALE PAGE' STYLING BELOW THIS COMMENT -----  */
 
 #for-sale-title {
@@ -276,36 +411,39 @@ main {
     text-decoration: underline;
     animation: fadeInDown 500ms ease-in-out;
     text-align: center;
-
 }
-
 
 /* ---- 'DETAILS PAGE' STYLING BELOW THIS COMMENT -----  */
 
 .search {
     color: white;
 }
+
 .listed {
     color: white;
 }
+
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
 #add-image-form {
     text-align: center;
     color: white;
     margin-top: 20px;
 }
+
 .house-details-card {
     border-radius: 20px;
     background-color: rgb(29, 29, 29);
     width: 350px;
-    height: 150px;
+    height: 180px;
     align-items: center;
     margin: auto;
-    padding: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
     color: white;
     animation: fadeIn 1s ease-in;
     top: 40%;
@@ -315,24 +453,30 @@ img {
     margin-bottom: 25px;
     font-size: 18px;
 }
+
 .card-action {
     text-align: center;
 }
+
 h2 {
     text-align: center;
     color: white;
 }
+
 button {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
 .listing-section {
     margin: 0 auto;
 }
+
 span {
     color: rgb(170, 110, 0);
 }
+
 /* ----- 'ABOUT PAGE' STYLING BELOW THIS COMMENT ----- */
 
 #about-page-container {
@@ -516,12 +660,24 @@ a:hover {
     color: white;
 }
 
+#list-house-btn:hover {
+    background-color: rgb(170, 110, 0);
+    color: white;
+}
+
+#sell-btn:hover {
+    background-color: rgb(170, 110, 0);
+    color: white;
+}
+
 /*---------------SLIDE GALLERY CSS ---------------------*/
+
 * {
     box-sizing: border-box;
   }
   
   /* Position the image container (needed to position the left and right arrows) */
+
   .slide-gallery {
     /* position: relative; */
     display: flex;
@@ -529,6 +685,7 @@ a:hover {
   }
   
   /* Hide the images by default */
+
   .mySlides {
     display: none;
     /* max-height: 475px;
@@ -536,11 +693,13 @@ a:hover {
   }
   
   /* Add a pointer when hovering over the thumbnail images */
+
   .cursor {
     cursor: pointer;
   }
   
   /* Next & previous buttons */
+
   .prev,
   .next {
     cursor: pointer;
@@ -558,13 +717,15 @@ a:hover {
   }
   
   /* Position the "next button" to the right */
+
   .next {
     right: 0;
     border-radius: 3px 0 0 3px;
     color: white;
   }
   /* On hover, add a black background color with a little bit see-through */
+
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: none;
 }
