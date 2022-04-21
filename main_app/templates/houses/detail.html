@@ -33,6 +33,7 @@
         <span class="card-title">{{ house.name }}</span>
         <p>Address: {{ house.address }}</p>
         <p>City: {{ house }}</p>
+        <p>Zip Code: {{ house.zipcode }}</p>
         <p>Description: {{ house.description }}</p>
       </div>
       {% if user.is_authenticated and house.user.id == user.id %}
