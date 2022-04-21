@@ -46,7 +46,7 @@
     
   </div>
 </div>
-<hr>
+<hr id="divider">
 {% if listing %}
 <div class="listing-section">
   <h2 class="listed"><span>Listed On: </span> {{ listing.date}}</h2>
@@ -54,6 +54,7 @@
   <h2 class="listed"><span>Price: </span> {{ listing.price}}</h2>
 </div>
   {% else %}
+  {% if user.is_authenticated and house.user.id == user.id %}
   <div class="listing-section">
     <h2>LIST THE HOUSE</h2>
     <form action="{% url 'add_listing' house.id %}" method="post" id="listing-inputs">
@@ -61,6 +62,7 @@
       {{ listing_form.as_p }}
       <button id="list-house-btn">List House</button>
     </form>
+    {% endif %}
   </div>
 {% endif %}
 
