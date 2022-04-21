@@ -9,7 +9,7 @@
   {% for photo in house.photo_set.all %}
   <img class="mySlides" src="{{ photo.url }}" width="750px" height="421px">
   {% empty %}
-  <p class="details-text">No Photos Uploaded</p>
+  <p class="no-photos-uploaded">No Photos Uploaded</p>
   {% endfor %}
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
@@ -48,17 +48,17 @@
 <hr>
 {% if listing %}
 <div class="listing-section">
-  <h2 class="listed"><span>LISTED ON: </span> {{ listing.date}}</h2>
-  <h2 class="listed"><span>REALTOR: </span> {{ listing.realtor.name}}</h2>
-  <h2 class="listed"><span>PRICE: </span> {{ listing.price}}</h2>
+  <h2 class="listed"><span>Listed On: </span> {{ listing.date}}</h2>
+  <h2 class="listed"><span>Realtor: </span> {{ listing.realtor.name}}</h2>
+  <h2 class="listed"><span>Price: </span> {{ listing.price}}</h2>
 </div>
   {% else %}
   <div class="listing-section">
     <h2>LIST THE HOUSE</h2>
-    <form action="{% url 'add_listing' house.id %}" method="post">
+    <form action="{% url 'add_listing' house.id %}" method="post" id="listing-inputs">
       {% csrf_token %}
       {{ listing_form.as_p }}
-      <button>LIST HOUSE</button>
+      <button id="list-house-btn">List House</button>
     </form>
   </div>
 {% endif %}

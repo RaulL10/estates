@@ -1,15 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<h3>Realtor</h3>
-<p>Name: {{ realtor.name }}</p>
-<p>Description: {{ realtor.description }}</p>
-<p>Email: {{ realtor.email }}</p>
-<p>Phone: {{ realtor.phone }}</p>
 
-
-<p>Profile Pic:
-{% if realtor.image %}
-<img src="{{ realtor.image.url }}">
-{% endif %}
-</p>
-{% endblock %}
+<div id="realtor-detail-card">
+    <h3 id="realtor-name">{{ realtor.name }}</h3>
+    {% if realtor.image %}
+    <img src="{{ realtor.image.url }}" width="190px" height="200px" id="realtor-profile-pic">
+    {% endif %}
+    <p id="realtor-inner-info"><span class="realtor-info">Phone:</span> {{ realtor.phone }}</p>
+    <p id="realtor-inner-info"><span class="realtor-info">Email:</span> {{ realtor.email }}</p>
+    <p id="realtor-inner-info"><span class="realtor-info">Description:</span> {{ realtor.description }}</p>
+    {% endblock %}
+</div>
