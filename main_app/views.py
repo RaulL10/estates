@@ -1,5 +1,3 @@
-
-   
 from re import template
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -23,8 +21,6 @@ def home(request):
 
 def about(request):
   return render(request, 'about.html')
-
-
 
 
 @login_required
