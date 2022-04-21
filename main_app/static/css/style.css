@@ -207,11 +207,12 @@ main {
     border: 0;
     /* box-sizing: border-box; */
     cursor: pointer;
-    font-size: 20px;
-    margin-top: 32px;
+    font-size: 18px;
+    margin-top: 35px;
+    margin-right: 10px;
     text-align: center;
     width: 30%;
-    height: 25px;
+    height: 23px;
 }
 
 .house-card-content {
@@ -219,12 +220,14 @@ main {
     border: 1px solid white;
     padding: 15px;
     border-radius: 9px;
-
+    max-width: 350px;
+    animation: fadeInDown 700ms ease-in-out;
 }
 
 /* ---- 'MARK AS SOLD PAGE' STYLING BELOW THIS COMMENT ----- */
 
 #sell-house-title {
+    font-size: 34px;
     color: white;
     text-decoration: underline;
     animation: fadeInDown 900ms ease-in-out;
@@ -306,6 +309,7 @@ main {
 /* ----- 'ADD LISTING PAGE' STYLING BELOW THIS COMMENT ---- */
 
 #add-listing-title {
+    font-size: 34px;
     color: white;
     text-align: center;
     text-decoration: underline;
@@ -358,6 +362,7 @@ main {
 /* ----- 'REALTORS PAGE' STYLING BELOW THIS COMMENT ----- */
 
 #realtors-list-title {
+    font-size: 34px;
     color: white;
     display: block;
     text-align: center;
@@ -419,16 +424,27 @@ main {
 /* ----- 'FOR SALE PAGE' STYLING BELOW THIS COMMENT -----  */
 
 #for-sale-title {
+    font-size: 34px;
     color: white;
     text-decoration: underline;
-    animation: fadeInDown 500ms ease-in-out;
+    animation: fadeInDown 800ms ease-in-out;
     text-align: center;
+}
+
+.house-for-sale-card {
+    background-color: rgb(29, 29, 29);
+    border: 1px solid white;
+    padding: 15px;
+    border-radius: 9px;
+    max-width: 350px;
+    animation: fadeInDown 500ms ease-in-out;
 }
 
 /* ---- 'DETAILS PAGE' STYLING BELOW THIS COMMENT -----  */
 
 .search {
     color: white;
+    text-decoration: underline;
 }
 
 .listed {
@@ -451,7 +467,7 @@ img {
     border-radius: 20px;
     background-color: rgb(29, 29, 29);
     width: 350px;
-    height: 180px;
+    height: 215px;
     align-items: center;
     margin: auto;
     padding-left: 20px;
@@ -545,6 +561,7 @@ span {
 }
 
 #log-in-title {
+    font-size: 34px;
     text-decoration: underline;
     text-align: center;
     color: white;
@@ -573,6 +590,7 @@ span {
 /* ----- 'SIGN UP PAGE' STYLING BELOW THIS COMMENT -----  */
 
 #sign-up-title {
+    font-size: 34px;
     color: white;
     display: block;
     text-align: center;
@@ -583,7 +601,7 @@ span {
 #sign-up-container {
     border-radius: 20px;
     background-color: rgb(29, 29, 29);
-    width: 350px;
+    width: 300px;
     height: 300px;
     align-items: center;
     display: block;
@@ -612,6 +630,26 @@ span {
     height: 28px;
 }
 
+#id_username {
+    margin: auto;
+    align-items: center;
+    display: inline-flex;
+}
+
+#id_password {
+    margin: auto;
+    align-items: center;
+    display: inline-flex;
+}
+
+#id_password1 {
+    align-items: center;
+}
+
+#id_password2 {
+    align-items: center;
+}
+
 /* ----- !!!! ~ ONLY ANIMATIONS BELOW THIS LINE ~ !!!! ----- */
 
 @keyframes fadeIn {
@@ -626,7 +664,7 @@ span {
 @keyframes fadeInDown {
     0% {
         opacity: 0;
-        transform: translateY(-40px);
+        transform: translateY(-50px);
     }
     100% {
         opacity: 1;
