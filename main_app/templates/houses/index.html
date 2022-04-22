@@ -20,7 +20,7 @@
             <a href="{% url 'detail' house.id %}">
                 <div class="card">
                     <div class="house-card-content">
-                        <span class="card-title">{{ house.name }}</span>
+                        <span class="card-title">Owner {{house.user}}</span> 
                         <p>Address: {{ house.address }}</p>
                         <p>City: {{ house }}</p>
                         <p>Zip Code: {{ house.zipcode }}</p>

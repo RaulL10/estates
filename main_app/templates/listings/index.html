@@ -7,7 +7,7 @@
 <hr>
   <a href="{% url 'detail' l.house.id %}">
     <div class="house-for-sale-card">
-        <h3>Listing ID: {{ l.id }}</h3>
+        <h3><span>Owner: {{ l.house.user }}</span></h3>
         <div class="card-content">
           <span class="card-title">{{ l.house.name }}</span>
             <p class="price">Price: {{ l.price }}</p>

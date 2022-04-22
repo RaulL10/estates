@@ -30,15 +30,6 @@ h1 {
     opacity: 75%;
 }
 
-.home-icon {
-    float: left;
-    height: 60px;
-    margin: 0;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
 .links {
     height: 68px;
@@ -48,6 +39,7 @@ h1 {
     text-decoration: none;
     font-size: 14px;
     padding-right: 25px;
+    padding-left: 0;
 }
 
 ul {
@@ -68,7 +60,26 @@ li {
     flex-direction: column;
     justify-content: center;
 }
-
+.home-icon {
+    float: left;
+    height: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 2px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    font-family: 'Akshar', sans-serif;
+    letter-spacing: 2px;
+}
+#corner-icon {
+    height: 55px;
+    margin-left: 0;
+    margin-right: 0;
+}
+#corner-logo {
+    padding-bottom: 10px;
+}
 /* ----- 'HOME PAGE' STYLING BELOW THIS COMMENT ----- */
 
 #home-container {
@@ -333,7 +344,7 @@ main {
 
 #choose-file-btn {
     cursor: pointer;
-    width: 175px;
+    width: 195px;
 }
 
 /* ----- 'ADD LISTING PAGE' STYLING BELOW THIS COMMENT ---- */
